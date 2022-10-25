@@ -19,3 +19,10 @@ Finally the target values are:
 - Target: Failure or Not.
 - Failure type: Type of failure.
 
+## Problem approach
+
+Since there is a classification problem where needs to predict if a machine is going to fail or not, an approach of Linear Regression, Decision Tree, Random Forest and XGBoost is proposed.
+
+## Instructions on how to run the project
+
+### Exploratory Data Analysis
