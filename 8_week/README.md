@@ -25,4 +25,32 @@ Since there is a classification problem where needs to predict if a machine is g
 
 ## Instructions on how to run the project
 
-### Exploratory Data Analysis
+### Data
+
+The data is also founded in the [data]{https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/predictive_maintenance.csv}
+
+### Files
+
+A) The first file is the [notebook]{https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/notebook.ipynb} where the data preparation, data cleaning, exploratory data analysis, feature importances, model selection process and parameter tuning is done.
+
+0. Loaded libraries: Numpy and pandas for numerical processing; matplotlib and seaborn for making graphs; LogisticRegression, DecisionTreeClassifier, RandomForest and XGBoost are the models proposed to predict if a machine is propense to fail; train_test_split, DictVectorizer, cross_val_predict and KFold for prepoced data; consufion_matrix, accuracy_score, roc_auc_score, mutual_info_score, precision_score, recall_score, precision_recall_curve and roc_curve as metrics to evaluate the different models and finally tqdm for take time of the loops.
+
+1. After that, the data is downloaded from the specific link.
+
+2. The data preparation and data cleaning is performed, the names in the columns are transformed to lowercase and without a blank space. Here I identify that two columns are useless: the udi and product_id, since those numbers are use it to identify the particular machine and also identified if there are some outliers or nulls values in the data.
+
+3. Exploratory Data Analysis: I started checking information about the categorical data, which in this case was just the type of the machine and for the numerical data I made some histograms and scatter plots to try to find some relations between the features. Here I found that the most common correlation was the torque with the rotational speed, when a machine had low torque and high rotational speed, the machine was more propensed to fail and viceverse, when there was a high torque with low rotational speed the machine was failing.
+
+4. Model selection process and parameter tuning: here I trained several models (LogisticRegression, DecisionTree, RandomForest and XGBoost) to try to find the best performance using the roc_auc_curve value. First the validation framework was created, where the data was splitted into train, validation and test and the target value was passed to another variable a dropped from the original data, then the preprocessing was done using the DictVectorizer to make a one-hot encode for the categorical variable of type. Finally the four models were trained and tuned in the following parameters:
+4.1.- For the LogisticRegression the C parameter of regularization was tuned, it was found with a C=15 but the roc_auc_score was only 89.36
+4.2.- For the DecisionTree the max_depth and min_sample_leaf were tuned, it was found that the best model fits with max_depth = 8 and a min_sample_leaf = 50, with roc_auc_score = 97%.
+4.3.- For the RandomForest the n_estimators, max_depth and min_samples_leaf were tunned with the following best parameters n_estimators=200, max_depth=10, min_samples_leaf=25, with roc_auc_score = 96.43
+4.4.- For the XGBoost the eta, max_depth and min_child_weight was tunned with the following best parameters eta= 0.3, max_depth = 3 and min_child_weight = 10 with a roc_auc_score = 97.33%
+
+5.- The models were compared, where XGboost was the one with the best roc_auc_score
+
+6.- The final model was trained with the full data train and compared with the test data, the roc_auc_score was better with a 98.24% of roc_auc_score.
+
+B) The second file is the train
+
+C) The third file is the predict 
