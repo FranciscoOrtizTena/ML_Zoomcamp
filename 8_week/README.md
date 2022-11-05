@@ -73,6 +73,20 @@ And will create the following [bentomodel](https://github.com/FranciscoOrtizTena
 bentoml models import maintenance_predict_model-asw4gns4q2vxgjv5.bentomodel
 ```
 
-Finally, you can use the [predict.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/predict.ipynb) to load the bentomodel and predict if a machine is prone to fail or not
+Finally, you can use the [predict.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/predict.ipynb) to load the bentomodel and predict if a machine is prone to fail or not. Remember you need to pass a dictionary as follows:
 
-C) The third file is the predict 
+{"type": str,
+ "air_temperature_[k]": float,
+ "process_temperature_[k]": float,
+ "rotational_speed_[rpm]": int,
+ "torque_[nm]": float,
+ "tool_wear_[min]": int}
+ 
+ Here is an example
+ 
+ {"type": "L",
+  "air_temperature_[k]": 298.0,
+  "process_temperature_[k]": 308.7,
+  "rotational_speed_[rpm]": 1268,
+  "torque_[nm]": 69.4,
+  "tool_wear_[min]": 189}
