@@ -51,11 +51,28 @@ A) The first file is the [notebook](https://github.com/FranciscoOrtizTena/ML_Zoo
 
 6.- The final model was trained with the full data train and compared with the test data, the roc_auc_score was better with a 98.24% of roc_auc_score.
 
-B) The second file is the build_bento_model_maintenance.ipynb file, here the best model, which was the XGBoost model, is trained again and saved into a bento model to deploy it. Aditionally you can find here the maintenance_predict_model-asw4gns4q2vxgjv5.bentomodel file, you can download this file and use with the following command in your terminal to import and then use the predict.ipynb script to load it
+B) The second file is the [build_bento_model_maintenance.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/build_bento_model_maintenance.ipynb) file, here the best model, which was the XGBoost model, is trained again and saved into a bento model to deploy it.
+
+Once the Bentomodel is created, the [train.py](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/train.py) is elaborated whit the script to deploy it locally using the bento interface. You can run it locally using the following command in the terminal
 
 ```bash
-curl -O 
+bentoml serve train.py:svc --production
+```
+
+But be careful to specify the correctl tag of the model in the script, since if you run it from your computer the tag may change.
+
+Another option to run it locally is to export the model using the following methodology.
+
+```bash
+bentoml models export maintenance_predict_model:asw4gns4q2vxgjv5
+```
+
+And will create the following [bentomodel](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/maintenance_predict_model-asw4gns4q2vxgjv5.bentomodel?raw=true) file, you can download this file and the use the following command in your terminal to import it.
+
+```bash
 bentoml models import maintenance_predict_model-asw4gns4q2vxgjv5.bentomodel
 ```
+
+Finally, you can use the [predict.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/predict.ipynb) to load the bentomodel and predict if a machine is prone to fail or not
 
 C) The third file is the predict 
