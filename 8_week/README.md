@@ -55,9 +55,13 @@ A) The first file is the [notebook](https://github.com/FranciscoOrtizTena/ML_Zoo
 
 #### Deployment locally
 
-B) The second file is the [build_bento_model_maintenance.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/build_bento_model_maintenance.ipynb) file, here the best model, which was the XGBoost model, is trained again and saved into a bento model to deploy it.
+B) The second file is the [build_bento_model_maintenance.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/build_bento_model_maintenance.ipynb) file, here the best model, which was the XGBoost model, is trained again and saved into a bento model to deploy it, then the [train.py](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/train.py) is elaborated whit the script to deploy it locally using the bento interface. But first you need to build your bento with.
 
-Once the Bentomodel is created, the [train.py](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/train.py) is elaborated whit the script to deploy it locally using the bento interface. You can run it locally using the following command in the terminal
+```bash
+bentoml build
+```
+
+Then you can run it locally using the following command in the terminal
 
 ```bash
 bentoml serve train.py:svc --production
