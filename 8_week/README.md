@@ -31,6 +31,8 @@ The data is also founded in the [data](https://github.com/FranciscoOrtizTena/ML_
 
 ### Files
 
+#### Training
+
 A) The first file is the [notebook](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/notebook.ipynb) where the data preparation, data cleaning, exploratory data analysis, feature importances, model selection process and parameter tuning is done.
 
 0. Loaded libraries: Numpy and pandas for numerical processing; matplotlib and seaborn for making graphs; LogisticRegression, DecisionTreeClassifier, RandomForest and XGBoost are the models proposed to predict if a machine is propense to fail; train_test_split, DictVectorizer, cross_val_predict and KFold for prepoced data; consufion_matrix, accuracy_score, roc_auc_score, mutual_info_score, precision_score, recall_score, precision_recall_curve and roc_curve as metrics to evaluate the different models and finally tqdm for take time of the loops.
@@ -51,6 +53,8 @@ A) The first file is the [notebook](https://github.com/FranciscoOrtizTena/ML_Zoo
 
 6.- The final model was trained with the full data train and compared with the test data, the roc_auc_score was better with a 98.24% of roc_auc_score.
 
+#### Deployment locally
+
 B) The second file is the [build_bento_model_maintenance.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/build_bento_model_maintenance.ipynb) file, here the best model, which was the XGBoost model, is trained again and saved into a bento model to deploy it.
 
 Once the Bentomodel is created, the [train.py](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/train.py) is elaborated whit the script to deploy it locally using the bento interface. You can run it locally using the following command in the terminal
@@ -60,6 +64,8 @@ bentoml serve train.py:svc --production
 ```
 
 But be careful to specify the correctl tag of the model in the script, since if you run it from your computer the tag may change.
+
+You can visit the [local host](http://0.0.0.0:3000/) to make predictions
 
 Another option to run it locally is to export the model using the following methodology.
 
@@ -73,7 +79,7 @@ And will create the following [bentomodel](https://github.com/FranciscoOrtizTena
 bentoml models import maintenance_predict_model-asw4gns4q2vxgjv5.bentomodel
 ```
 
-Finally, you can use the [predict.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/predict.ipynb) to load the bentomodel and predict if a machine is prone to fail or not. Remember you need to pass a dictionary as follows:
+c) Finally, you can use the third file [predict.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/predict.ipynb) to load the bentomodel and predict if a machine is prone to fail or not. Remember you need to pass a dictionary as follows:
 
 {"type": str,
  "air_temperature_[k]": float,
@@ -90,3 +96,20 @@ Finally, you can use the [predict.ipynb](https://github.com/FranciscoOrtizTena/M
   "rotational_speed_[rpm]": 1268,
   "torque_[nm]": 69.4,
   "tool_wear_[min]": 189}
+  
+#### Deployment using Docker
+  
+To deploy your model using the Docker images, you need first to containerize the previous model, if you use the bentomodel file, type the following on your terminal to containerize it.
+
+
+```bash
+bentoml containerize maintenance_predict_classifier:fjxpm3s4soefsjv5
+```
+
+Once it's containerize it you can build the image using the following command on your terminal.
+
+```bash
+docker run -it --rm -p 3000:3000 maintenance_predict_classifier:fjxpm3s4soefsjv5 serve --production
+```
+
+As the one in deploying you can visit the [local host](http://0.0.0.0:3000/) to make the predictions
