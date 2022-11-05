@@ -51,6 +51,11 @@ A) The first file is the [notebook](https://github.com/FranciscoOrtizTena/ML_Zoo
 
 6.- The final model was trained with the full data train and compared with the test data, the roc_auc_score was better with a 98.24% of roc_auc_score.
 
-B) The second file is the train
+B) The second file is the build_bento_model_maintenance.ipynb file, here the best model, which was the XGBoost model, is trained again and saved into a bento model to deploy it. Aditionally you can find here the maintenance_predict_model-asw4gns4q2vxgjv5.bentomodel file, you can download this file and use with the following command in your terminal to import and then use the predict.ipynb script to load it
+
+```bash
+curl -O 
+bentoml models import maintenance_predict_model-asw4gns4q2vxgjv5.bentomodel
+```
 
 C) The third file is the predict 
