@@ -1,0 +1,10 @@
+service: "train.py:svc"
+labels:
+  owner: francisco-ortiz-tena
+  project: mlzoomcamp
+include:
+- "*.py"
+python:
+  packages:
+    - xgboost
+    - sklearn
