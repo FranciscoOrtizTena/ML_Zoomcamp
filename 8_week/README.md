@@ -31,7 +31,7 @@ The data is also founded in the [data](https://github.com/FranciscoOrtizTena/ML_
 
 ### Files
 
-#### Training
+### Training
 
 A) The first file is the [notebook](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/notebook.ipynb) where the data preparation, data cleaning, exploratory data analysis, feature importances, model selection process and parameter tuning is done.
 
@@ -53,7 +53,7 @@ A) The first file is the [notebook](https://github.com/FranciscoOrtizTena/ML_Zoo
 
 6.- The final model was trained with the full data train and compared with the test data, the roc_auc_score was better with a 98.24% of roc_auc_score.
 
-#### Deployment locally
+## Deployment locally
 
 B) The second file is the [build_bento_model_maintenance.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/build_bento_model_maintenance.ipynb) file, here the best model, which was the XGBoost model, is trained again and saved into a bento model to deploy it, then the [train.py](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/train.py) is elaborated whit the script to deploy it locally using the bento interface. 
 
@@ -97,15 +97,18 @@ c) Finally, you can use the third file [predict.ipynb](https://github.com/Franci
   "torque_[nm]": 69.4,
   "tool_wear_[min]": 189}
   
-#### Deployment using Docker
+## Deployment using Docker
 
-But first you need to build your bento with.
+Once you create you bento model in the script [build_bento_model_maintenance.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/build_bento_model_maintenance.ipynb), you need to create a [bentofile.yaml](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/bentofile.yaml), specifying the service, some labels, programming language and the different packages to use. 
+
+
+Then you need to build your bento with.
 
 ```bash
 bentoml build
 ```
   
-To deploy your model using the Docker images, you need first to containerize the previous model, if you use the bentomodel file, type the following on your terminal to containerize it.
+To deploy your model using the Docker images, you need first to containerize the previous model into a Docker image, using the bentomodel file, type the following on your terminal to containerize it.
 
 
 ```bash
@@ -118,4 +121,4 @@ Once it's containerize it you can build the image using the following command on
 docker run -it --rm -p 3000:3000 maintenance_predict_classifier:fjxpm3s4soefsjv5 serve --production
 ```
 
-As the one in deploying you can visit the [local host](http://0.0.0.0:3000/) to make the predictions
+As the one in deploying, you can visit the [local host](http://0.0.0.0:3000/) to make the predictions
