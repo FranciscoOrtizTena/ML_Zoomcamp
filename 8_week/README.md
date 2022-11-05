@@ -27,11 +27,11 @@ Since there is a classification problem where needs to predict if a machine is g
 
 ### Data
 
-The data is also founded in the [data]{https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/predictive_maintenance.csv}
+The data is also founded in the [data](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/predictive_maintenance.csv)
 
 ### Files
 
-A) The first file is the [notebook]{https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/notebook.ipynb} where the data preparation, data cleaning, exploratory data analysis, feature importances, model selection process and parameter tuning is done.
+A) The first file is the [notebook](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/notebook.ipynb) where the data preparation, data cleaning, exploratory data analysis, feature importances, model selection process and parameter tuning is done.
 
 0. Loaded libraries: Numpy and pandas for numerical processing; matplotlib and seaborn for making graphs; LogisticRegression, DecisionTreeClassifier, RandomForest and XGBoost are the models proposed to predict if a machine is propense to fail; train_test_split, DictVectorizer, cross_val_predict and KFold for prepoced data; consufion_matrix, accuracy_score, roc_auc_score, mutual_info_score, precision_score, recall_score, precision_recall_curve and roc_curve as metrics to evaluate the different models and finally tqdm for take time of the loops.
 
