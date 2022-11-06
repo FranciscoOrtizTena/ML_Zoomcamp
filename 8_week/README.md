@@ -139,3 +139,41 @@ docker run -it --rm -p 3000:3000 franciscoortiztena/maintenance_predict_classifi
 ```
 
 As the one in deploying, you can visit the [local host](http://0.0.0.0:3000/) to make the predictions
+
+## Deployment using AWS
+
+Finally if you want to deploy the model in the web, like AWS, follow the steps.
+
+1.- Check your [train.py](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/8_week/train.py) to contain the information that your model want to do.
+
+2.- Build your model with the following command on your terminal.
+
+```bash
+bentoml build
+```
+
+3.- Then you need to containerize it with the following command.
+
+```bash
+bentoml containerize maintenance_predict_classifier:22p55dc6ckfrujv5 --platform=linux/amd64
+```
+
+Remember to specify the platform, since it will made things easy when deploying in AWS
+
+4.- Then on you [AWS](https://aws.amazon.com/es/) account you need to create first an Elastic Container Registry. Once is created you can use the push commands proposed in the AWS, remember to be logged in your terminal with your AWS credentials.
+- Retrieve an authentication token and authenticate your Docker client to your registry
+- Tag your image so you can push the image to this repositroy.
+- Push this images to your newly created AWS repository
+
+5.- Then you need to create an Elastic Container Service, creating a cluster using the networking only with AWS Fargate.
+
+6.- After that you need to create a new task definition in Fargate, choosing a task memory of 0.5GB and a tasl CPU of 0.25. Add the container, specifying the URI, a soft limit memory of 256MiB, mapping the port to 3000.
+
+7.- After that, return to the cluster and "Run new Task", Launching in Fargate, Operating System Family Linux, select the created task definition, in Cluster VPC select the default, Subnets the one with us-east-1a, in security group configure your Custom TCP port 3000, and after create the task will starting to run.
+
+8.- Into the task you will find the public IP, remember to specify the 3000 port at the end of the IP
+
+9.- Finally here is a video of how the model was deployed using AWS
+
+https://user-images.githubusercontent.com/108430575/200197766-39697caa-3bbe-41fe-aa1a-da7286f4a5a7.mov
+
