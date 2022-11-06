@@ -118,10 +118,24 @@ To deploy your model using the Docker images, you need first to containerize the
 bentoml containerize maintenance_predict_classifier:fjxpm3s4soefsjv5
 ```
 
-Once it's containerize it you can build the image using the following command on your terminal.
+Once it's containerize it you can build the image using the following command on your terminal, remember to check the tag number for containerize it
 
 ```bash
 docker run -it --rm -p 3000:3000 maintenance_predict_classifier:fjxpm3s4soefsjv5 serve --production
+```
+
+Another way is to download the docker image from the repository in the [docker hub](https://hub.docker.com/r/franciscoortiztena/maintenance_predict_classifier) 
+
+First you need to download the docker image with the following command in the terminal
+
+```bash
+docker pull franciscoortiztena/maintenance_predict_classifier
+```
+
+And then run the following command
+
+```bash
+docker run -it --rm -p 3000:3000 franciscoortiztena/maintenance_predict_classifier serve --production
 ```
 
 As the one in deploying, you can visit the [local host](http://0.0.0.0:3000/) to make the predictions
