@@ -37,7 +37,7 @@ The data is also founded in the [Data](https://raw.githubusercontent.com/Francis
 
 ### Training
 
-A) The first file is the [Notebook](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/tree/main/8_week) where the data preparation, data cleaning, exploratory data analysis, feature importances, model selection process and parameter tuning is done.
+A) The first file is the [notebook.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/tree/main/8_week) where the data preparation, data cleaning, exploratory data analysis, feature importances, model selection process and parameter tuning is done.
 
 0. Loaded libraries: Numpy and pandas for numericla processing; matplotlib and seaborn for making graphs; LinearRegression, Ridge, Lasso, DecisitonTreeRegressor, RandomForestRegressor and XGBoost are the models proposed to predict the price of the flight ticket; train_test_split, DictVectorizer, cross_val_predict for preprocess the data; mean_squared_error, r2_score and mutual_info_score as metrics to evaluate the different models and finally tqdm for take time of the loops.
 1. After that, the data is downloaded from the specific link.
