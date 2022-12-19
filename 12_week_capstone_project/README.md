@@ -22,3 +22,19 @@ The final target of this flight price prediction model is to analyse the flight 
 Finally the target value is:
 
 - Price: Target variable stores information of the ticket price.
+
+## Problem approach
+
+Since there is a regression problem where needs to predict a continuous value, in this case the price, an approach of Linear Regression, Decision Tree, Random Forest Regressor and XGBoost is proposed.
+
+## Instructions on how to run the project
+
+### Data
+
+The data is also founded in the [Data](https://raw.githubusercontent.com/FranciscoOrtizTena/ML_Zoomcamp/main/12_week_capstone_project/flight_price_prediction.csv)
+
+### Files
+
+### Training
+
+
