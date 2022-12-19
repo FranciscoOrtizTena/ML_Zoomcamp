@@ -78,6 +78,7 @@ bentoml models import flight_price_prediction:wqqm6cd7xcjtzzc6
 
 C) Finally, you can use the third file [predict.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/12_week_capstone_project/predict.ipynb) to load the bentomodel and predict the price of the flight. Remember you need to pass a dictionary as follows:
 
+```python
 {"airline": str,
 "source_city": str,
 "departure_time": str,
@@ -87,6 +88,7 @@ C) Finally, you can use the third file [predict.ipynb](https://github.com/Franci
 "class": str,
 "duration": float,
 "days_left": int}
+```
 
 Here is an example:
 
@@ -100,4 +102,4 @@ Here is an example:
 "class": "economy",
 "duration": 12.42,
 "days_left": 16}
- ```
+```
