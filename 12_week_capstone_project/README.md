@@ -103,3 +103,7 @@ Here is an example:
 "duration": 12.42,
 "days_left": 16}
 ```
+
+Following is a pics on locally deployment
+
+![deployment locally](https://user-images.githubusercontent.com/108430575/208488022-ee700c13-90f8-46a5-831b-56c6768e952d.PNG)
