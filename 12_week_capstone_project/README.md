@@ -109,7 +109,7 @@ Following is a pics on locally deployment
 ![deployment locally](https://user-images.githubusercontent.com/108430575/208488022-ee700c13-90f8-46a5-831b-56c6768e952d.PNG)
 
 ## Deployment using Docker
-Once you create you bento model in the script [build_bento_model_price.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/12_week_capstone_project/build_bento_model_price.ipynb), you need to create a [bentofile.yaml](), specifying the service, labels programming language and the different packages to use.
+Once you create you bento model in the script [build_bento_model_price.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/12_week_capstone_project/build_bento_model_price.ipynb), you need to create a [bentofile.yaml](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/12_week_capstone_project/bentofile.yaml), specifying the service, labels programming language and the different packages to use.
 
 Then you need to build your bento with.
 
