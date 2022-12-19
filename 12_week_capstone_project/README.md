@@ -57,6 +57,6 @@ B) The second file is the [build_bento_model_price.ipynb](https://github.com/Fra
 
 The you can run it locally using the following command in the terminal
 
-'''bash
+```bash
 bentoml serve train.py:svc --production
-'''
+```
