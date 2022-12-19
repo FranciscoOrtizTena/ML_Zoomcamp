@@ -107,3 +107,66 @@ Here is an example:
 Following is a pics on locally deployment
 
 ![deployment locally](https://user-images.githubusercontent.com/108430575/208488022-ee700c13-90f8-46a5-831b-56c6768e952d.PNG)
+
+## Deployment using Docker
+Once you create you bento model in the script [build_bento_model_price.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/12_week_capstone_project/build_bento_model_price.ipynb), you need to create a [bentofile.yaml](), specifying the service, labels programming language and the different packages to use.
+
+Then you need to build your bento with.
+
+```bash
+bentoml build
+```
+
+To deploy your model using the Docker images, you need first to containerize the previous model into a Docker image, using the bentomodel file, type the following on your terminal to containerize it.
+
+```bash
+bentoml containerize flight_price_prediction:wqqm6cd7xcjtzzc6
+```
+
+Once it's containerize it, you can build the image using the following command on your terminal, remember to check the tag number for containerize it
+
+```bash
+docker run -it --rm -p 3000:3000 flight_price_prediction:wqqm6cd7xcjtzzc6 serve --production
+```
+
+Another way is to download the docker image from the repository in the [docker hub]()
+
+First you need to download the docker image with the following command in the terminal
+
+```bash
+docker franciscoortiztena/flight_price_prediction
+```
+
+And then run the following command
+
+```bash
+docker run -it --rm -p 3000:3000 franciscoortiztena/flight_price_prediction serve --production
+```
+
+As the one in deploying, you can visit the [local host](http://localhost:3000/) to make the predictions
+
+## Deployment using AWS
+Finally if you want to deploy the model in the web, like AWS, follow the steps.
+1. Check your [train.py](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/12_week_capstone_project/predict.ipynb) to contain the information that your model want to do.
+2. Build your model with the following command on your terminal
+
+```bash
+bentoml build
+```
+
+3. Then you need to containerize it with the following command
+
+```bash
+bentoml containerize flight_price_prediction: --platform=linux/amd64
+```
+Remember to specify the platform, since it will made thing easy when dploying in AWS
+
+4. Then on your [AWS](https://aws.amazon.com/es/) account you need to create first an Elastic Container Registry. Once is created you can use the push commands proposed in the AWS, remember to be logged in your terminal with your AWS credentials.
+- Retrieve an authentication token and authenticate your Docker client to your registry
+- Tag your image so you can push the image to this repository
+- Push this images to your newly created AWS repository
+5. Then you need to create an Elastic Container Service, creating a cluster using the networking only with AWS Fargate.
+6. After that you need to create a new task definition in Fargate, choosing a task memory of 0.5GB and a task CPU of 0.25. Add the container, specifying the URI, a soft limit memory of 256MiB, mapping the port to 3000.
+7. After that, return to the cluster and "Run new Task", Launching in Fargate, Operating System Family Linux, select the created task definition, in Cluster VPC select the default, Subnets the one with us-east-1a, in a security group configure your Custom TCP port 3000, and after crate the task will starting to run.
+8. Into the task you will find the public IP, remember to specify the 3000 port at the end of the IP
+9. Finally here is a video of how the model was dployed using AWS
