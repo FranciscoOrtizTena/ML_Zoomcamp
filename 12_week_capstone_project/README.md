@@ -52,3 +52,5 @@ A) The first file is the [Notebook](https://github.com/FranciscoOrtizTena/ML_Zoo
 5. The models were compared, where RandomForestRegressor was the one with the best r2_score.
 6. The final model was trained with the full data train and compared with the test data, the r2_score was better with a 98.57%.
 
+## Deploymeny locally
+B) The second file is the [build_bento_model_price.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/12_week_capstone_project/build_bento_model_price.ipynb) file, here the best model, which was the Random Forest Regressor model, is trained again and saved into a model to deploy it, then
