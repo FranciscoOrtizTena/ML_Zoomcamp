@@ -60,3 +60,44 @@ The you can run it locally using the following command in the terminal
 ```bash
 bentoml serve train.py:svc --production
 ```
+
+But be careful to specify the correctly tag of the model in the script, since if you run it from your computer the tag may change.
+
+You can visit the [local host](http://localhost:3000/) to make predictions
+
+Another option to run it locally is to export the model using the following methodology
+
+```bash
+bentoml models export flight_price_prediction:wqqm6cd7xcjtzzc6
+```
+And will create a bentomodel file, you can then pass the file and then use the following command in your terminal to import it
+
+```bash
+bentoml models import flight_price_prediction:wqqm6cd7xcjtzzc6
+```
+
+C) Finally, you can use the third file [predict.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/12_week_capstone_project/predict.ipynb) to load the bentomodel and predict the price of the flight. Remember you need to pass a dictionary as follows:
+
+{"airline": str,
+"source_city": str,
+"departure_time": str,
+"stops": str,
+"arrival_time": str,
+"destination_city": str,
+"class": str,
+"duration": float,
+"days_left": int}
+
+Here is an example:
+
+```python
+{"airline": "vistara",
+"source_city": "delhi",
+"departure_time": "early_morning",
+"stops": "two_or_more",
+"arrival_time": "evening",
+"destination_city": "chennai",
+"class": "economy",
+"duration": 12.42,
+"days_left": 16}
+ ```
