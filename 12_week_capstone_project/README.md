@@ -157,7 +157,7 @@ bentoml build
 3. Then you need to containerize it with the following command
 
 ```bash
-bentoml containerize flight_price_prediction: --platform=linux/amd64
+bentoml containerize flight_price_prediction:5tihtveaz6ypajv5 --platform=linux/amd64
 ```
 Remember to specify the platform, since it will made thing easy when dploying in AWS
 
