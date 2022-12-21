@@ -120,13 +120,13 @@ bentoml build
 To deploy your model using the Docker images, you need first to containerize the previous model into a Docker image, using the bentomodel file, type the following on your terminal to containerize it.
 
 ```bash
-bentoml containerize flight_price_prediction:5tihtveaz6ypajv5
+bentoml containerize flight_price_prediction:wqqm6cd7xcjtzzc6
 ```
 
 Once it's containerize it, you can build the image using the following command on your terminal, remember to check the tag number for containerize it
 
 ```bash
-docker run -it --rm -p 3000:3000 flight_price_prediction:5tihtveaz6ypajv5 serve --production
+docker run -it --rm -p 3000:3000 flight_price_prediction:wqqm6cd7xcjtzzc6 serve --production
 ```
 
 Another way is to download the docker image from the repository in the [docker hub]()
@@ -134,7 +134,7 @@ Another way is to download the docker image from the repository in the [docker h
 First you need to download the docker image with the following command in the terminal
 
 ```bash
-docker franciscoortiztena/flight_price_prediction
+docker pull franciscoortiztena/flight_price_prediction
 ```
 
 And then run the following command
