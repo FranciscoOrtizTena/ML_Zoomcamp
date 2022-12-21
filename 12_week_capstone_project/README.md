@@ -68,12 +68,12 @@ You can visit the [local host](http://localhost:3000/) to make predictions
 Another option to run it locally is to export the model using the following methodology
 
 ```bash
-bentoml models export flight_price_prediction:wqqm6cd7xcjtzzc6
+bentoml models export flight_price_prediction:45vzofuazozgyjv5
 ```
-And will create a bentomodel file, you can then pass the file and then use the following command in your terminal to import it
+And will create a bentomodel file, in this [link](https://drive.google.com/file/d/1GETu4bomuHzSUUQTpDXmZ4PfC3C1UlPF/view?usp=share_link) you can download the model, the file is heave to upload here in GitHub you can then pass the file and then use the following command in your terminal to import it
 
 ```bash
-bentoml models import flight_price_prediction:wqqm6cd7xcjtzzc6
+bentoml models import flight_price_prediction:45vzofuazozgyjv5
 ```
 
 C) Finally, you can use the third file [predict.ipynb](https://github.com/FranciscoOrtizTena/ML_Zoomcamp/blob/main/12_week_capstone_project/predict.ipynb) to load the bentomodel and predict the price of the flight. Remember you need to pass a dictionary as follows:
